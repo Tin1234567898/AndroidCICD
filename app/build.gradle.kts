@@ -1,14 +1,13 @@
 plugins {
     alias(libs.plugins.android.application)
-    id("org.owasp.dependencycheck") // áp dụng plugin Dependency Check
 }
 
 android {
-    namespace = "com.example.androidcicd"
+    namespace = "com.example.backup"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.androidcicd"
+        applicationId = "com.example.backup"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
