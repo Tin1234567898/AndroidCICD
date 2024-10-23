@@ -27,6 +27,16 @@ jobs:
 
       - name: Run OWASP Dependancy-check
         run: ./gradlew dependencyCheckAnalyze # Kiểm tra an ninh
+        with:
+          format: 'ALL'
+          scan: './'
+          failBuildOnCVSS: '7.0'  # Dừng build nếu phát hiện lỗ hổng có điểm CVSS >= 7
+
+      - name: Upload Dependency-Check Report
+        uses: actions/upload-artifact@v3
+        with:
+            name: dependency-check-report
+            path: ./dependency-check-report.html
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3
