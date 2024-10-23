@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest # chạy trên hệ diềd hành
     steps:
       - name: Checkout code
-        uses: actions/checkout@4.1.o # phiên bản kiểm tra mã nguồn trên Repository
+        uses: actions/checkout@4.1.0 # phiên bản kiểm tra mã nguồn trên Repository
 
       - name: Set up JDK 22
-        uses: actions/setup-java@3.13.0
+        uses: actions/setup-java@3.1.0
 
       - name: Build with Gradle
         run: ./gradlew build
