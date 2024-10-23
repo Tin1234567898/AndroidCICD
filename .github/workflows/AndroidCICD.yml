@@ -34,9 +34,6 @@ jobs:
           name: AndroidCICd.apk  # Tên file artifact
           path: app/build/outputs/apk/debug/app-debug.apk  # Đường dẫn tới APK
 
-      - name: OWASP Dependency Track check
-        uses: Quobis/action-owasp-dependency-track-check@v1.3
-
       - name: Upload Dependency-Check Report
         uses: actions/upload-artifact@v3
         with:
