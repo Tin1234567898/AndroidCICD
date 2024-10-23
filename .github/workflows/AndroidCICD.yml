@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest # chạy trên hệ diềd hành
     steps:
       - name: Checkout code
-        uses: actions/checkout@4.2.1 # phiên bản kiểm tra mã nguồn trên Repository
+        uses: actions/checkout@2 # phiên bản kiểm tra mã nguồn trên Repository
 
       - name: Setup Java JDK
-        uses: actions/setup-java@4.4.0
+        uses: actions/setup-java@2
         with:
           java-version: '22'
           distribution: 'microsoft'
