@@ -2,9 +2,9 @@ name: Android_CICD
 
 on:
   pull_request:
-    branches: [ master ] #thuc hien day len khi co 1 su kien xay branches-ignore:
+    branches: [ main ] #thuc hien day len khi co 1 su kien xay branches-ignore:
   push:
-    branches: [ master]
+    branches: [ main ]
 
 jobs:
   build:
