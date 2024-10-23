@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest  # Chạy trên hệ điều hành Ubuntu
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Sử dụng phiên bản v3
+        uses: actions/checkout@v3
 
       - name: Setup Java JDK
         uses: actions/setup-java@v3
@@ -25,8 +25,26 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build  # Lệnh để xây dựng dự án
 
+      - name: Run OWASP Dependancy-check
+        run: ./gradlew dependencyCheckAnalyze # Kiểm tra an ninh
+
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3  # Sửa thành v3
+        uses: actions/upload-artifact@v3
         with:
           name: AndroidCICd.apk  # Tên file artifact
           path: app/build/outputs/apk/debug/app-debug.apk  # Đường dẫn tới APK
+
+      - name: OWASP Dependency Track check
+        uses: Quobis/action-owasp-dependency-track-check@v1.3
+
+      - name: Upload Dependency-Check Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: dependency-check-report
+          path: build/reports/dependency-check-report.html # Đường dẫn tới báo cáo
+
+      - name: Run Unit Tests
+        run: ./gradlew test # Chạy kiểm tra đơn vị
+
+      - name: Run Instrumented tests
+        run: ./gradlew connectedAndroidTest  # Chạy kiểm tra giao diện người dùng
