@@ -15,4 +15,4 @@ material = { group = "com.google.android.material", name = "material", version.r
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-
+dependency-check = { id = "org.owasp.dependencycheck", version = "8.3.2" }

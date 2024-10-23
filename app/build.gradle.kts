@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("org.owasp.dependencycheck") // áp dụng plugin Dependency Check
 }
 
 android {
