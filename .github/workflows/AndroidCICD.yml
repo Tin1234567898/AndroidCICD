@@ -19,6 +19,9 @@ jobs:
           java-version: '19'  # Phiên bản Java JDK
           distribution: 'temurin'  # Phân phối Java (Temurin)
 
+      - name: Grant execute permission to gradlew
+        run: chmod +x ./gradlew
+
       - name: Build with Gradle
         run: ./gradlew build  # Lệnh để xây dựng dự án
 
